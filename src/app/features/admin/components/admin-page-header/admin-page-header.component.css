@@ -1,0 +1,24 @@
+.custom-toggle-bar {
+    /* Style the main container here */
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Adjust positioning as needed */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .toggle-content {
+    /* Style the content section here */
+    position: absolute;
+    top: 100%; /* Positioned below the main container */
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: none; /* Initially hidden */
+  }
+  
+  .toggle-content.active {
+    display: block; /* Display content on toggle */
+  }

@@ -1,0 +1,95 @@
+<div class=" flex-col justify-center items-center">
+
+    <div id="heading" class=" hidden sm:flex justify-between items-center px-6 py-3 2xl:mt-10 ">
+        <div class="h-[35px] px-4 py-1 rounded-md  text-2xl text-black font-bold ">Teacher Registration</div>
+        <div class="flex  gap-6">
+            <button class=" h-[35px] px-4 py-2 bg-[#4835FA] rounded-md text-white font-medium hover:bg-[#3460FA]" (click)="teacherlist()">Back
+                to List</button>
+            <button class=" h-[35px] px-4 py-2 bg-[#4835FA] rounded-md text-white font-medium hover:bg-[#3460FA]">Import
+                CSV</button>
+        </div>
+    </div>
+    <div id="form-container "
+        class=" container mx-auto w-[98%]  lg:w-[80%] h-fit   border-solid border-2 border-gray-300 bg-slate-200 rounded-lg shadow-xl flex flex-col items-center py-4 px-16 mt-2 2xl:mt-6">
+
+        <form action="" class="w-full flex flex-col gap-7 2xl:gap-10 px-4 py-2 2xl:py-6"  [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+
+            <div id="row1" class="flex flex-row gap-8 w-full justify-between">
+
+                <div id="name" class="flex flex-col gap-2 w-[50%]">
+                    <label class="font-medium 2xl:text-lg" for="age">Full Name</label>
+                    <input class=" h-9 2xl:h-12  rounded-md py-3 px-2 2xl:text-xl" type="text" id="name" formControlName="fullName">
+                </div>
+                <div id="gender" class="flex flex-col gap-2 w-[50%]">
+                    <label class="font-medium 2xl:text-lg" for="gender" >Gender</label>
+
+                    <select name="" id="" class=" h-9 2xl:h-12 rounded-md py-1 px-2 2xl:text-xl" formControlName="gender">
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+            <div id="row2" class="flex flex-row gap-8 w-full justify-between">
+
+                <div id="age" class="flex flex-col gap-2 w-[50%]">
+                    <label class="font-medium 2xl:text-lg" for="age">Date of Birth</label>
+                    <input class=" h-9 2xl:h-12 rounded-md py-3 px-2 2xl:text-xl" type="date" id="age" formControlName="dateOfBirth">
+                </div>
+                <div id="gender" class="flex flex-col gap-2 w-[50%]">
+                    <label class="font-medium 2xl:text-lg" for="gender">Qualification</label>
+
+                    <select name="" id="" class=" h-9 2xl:h-12 rounded-md py-1 px-2 2xl:text-xl" formControlName="qualification">
+                        <option value="">Select Highest Qualification</option>
+                        <option value="Matric Science">Matric Science</option>
+                        <option value="Matric Arts">Matric Arts</option>
+                        <option value="FSc Pre Medical">FSc Pre Medical</option>
+                        <option value="BA">BA</option>
+                        <option value="BSc">BSC</option>
+                        <option value="BS">BS</option>
+                        <option value="BS Computer Science">BS Computer Science</option>
+                        <option value="BS Mathematics">BS Mathematics</option>
+                        <option value="BS English">BS English</option>
+                        <option value="BS Urdu">BS Urdu</option>
+                        <option value="BS Biology">BS Biology</option>
+                        <option value="BS Physics">BS Physics</option>
+                        <option value="BS Chemistry">BS Chemistry</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+            <div id="row3" class="flex flex-row gap-8 w-full justify-between">
+
+                <div id="age" class="flex flex-col gap-2 w-[50%]">
+                    <label class="font-medium 2xl:text-lg" for="age">Email</label>
+                    <input class=" h-9 2xl:h-12 rounded-md py-2 px-2 2xl:text-xl" type="email" id="email" formControlName="email">
+                </div>
+                <div id="mobile" class="flex flex-col gap-2 w-[50%]">
+                    <label class="font-medium 2xl:text-lg" for="age">Mobile Number</label>
+                    <input class=" h-9 2xl:h-12 rounded-md py-2 px-2 2xl:text-xl" type="number" id="mobile" formControlName="mobile">
+                </div>
+            </div>
+
+
+            <div id="row4" class="flex flex-col gap-2 w-full">
+                <label class="font-medium 2xl:text-lg" for="fname">Address</label>
+
+                <textarea name="" id=""  class=" h-9 2xl:h-12 rounded-md py-2 px-2 2xl:text-xl" formControlName="address"></textarea>
+            </div>
+
+
+            <div id="row4" class=" gap-2">
+                <button class=" h-[35px] px-4 py-2 bg-[#4835FA] rounded-md text-white font-medium hover:bg-[#3460FA]">Add Teacher</button>
+            </div>
+        </form>
+
+    </div>
+
+</div>

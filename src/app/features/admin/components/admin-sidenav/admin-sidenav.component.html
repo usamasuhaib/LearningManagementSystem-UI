@@ -1,0 +1,65 @@
+<nav class="bg-[#303461] h-screen shadow-lg">
+
+    <!-- school info  -->
+    <div id="school-logo" class="flex flex-col justify-center items-center  gap-2 xl:gap-3">
+
+        <img src="{{ imagePath }}" alt="" class="w-16 h-16  2xl:w-24 2xl:h-24 rounded-full bg-white my-6">
+        <p class="hidden lg:block  lg:text-[15px] 2xl:text-2xl font-semibold text-white">Sun Rise Public School</p>
+    </div>
+
+    <!-- line  -->
+    <div class="h-[1.5px] bg-gray-500 mt-4 xl:mt-6 2xl:mt-10"></div>
+
+
+    <!-- nav items  -->
+    <div>
+        <ul class="flex flex-col list-none mt-4 gap-2 md:gap-2 lg:gap-4 xl:gap-3 2xl:gap-8">
+
+            <li class="flex flex-row  items-center gap-5 xl:gap-6 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]"
+                (click)="dashboard()" routerLinkActive="active">
+                <fa-icon [icon]="faDashboard" class="text-lg  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                <p class="hidden lg:block  2xl:text-xl text-white font-medium">Dashboard</p>
+            </li>
+
+            <li class="flex flex-row  items-center gap-5 xl:gap-6 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]"
+                (click)="teacherList()" routerLinkActive="active">
+                <fa-icon [icon]="faTeacher" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                <p class="hidden lg:block  2xl:text-xl text-white font-medium">Teachers</p>
+            </li>
+
+
+            <li class="flex flex-row  items-center gap-5 xl:gap-6 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]"
+                (click)="stdList()">
+                <fa-icon [icon]="faDashboard" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                <p class="hidden lg:block 2xl:text-xl text-white font-medium">Students</p>
+            </li>
+
+            <li class="flex flex-row  items-center gap-5 xl:gap-6 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]">
+                <fa-icon [icon]="faTeacher" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                <p class="hidden lg:block   2xl:text-xl text-white font-medium">Exams</p>
+            </li>
+            <li class="flex flex-row  items-center gap-5 xl:gap-6 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]">
+                <fa-icon [icon]="faBilling" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                <p class="hidden lg:block  2xl:text-xl text-white font-medium">Billings</p>
+            </li>
+
+            <li class="flex flex-row  items-center gap-5 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]">
+                <fa-icon [icon]="faProfile" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                <p class="hidden lg:block  2xl:text-xl text-white font-medium">Settings and profile</p>
+            </li>
+
+
+
+
+
+        </ul>
+
+
+        <span class="flex flex-row  items-center gap-5 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px] mt-6" (click)="logOut()">
+            <fa-icon [icon]="faLogout" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
+            <p class="hidden lg:block  2xl:text-xl text-white font-medium">Logout</p>
+        </span>
+    </div>
+
+
+</nav>

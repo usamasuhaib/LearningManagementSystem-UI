@@ -1,0 +1,52 @@
+<div id="main-container" class="min-h-screen  bg-slate-50 flex  justify-center items-center">
+
+    <div id="form-container " class="w-[85%] md:w-[80%] lg:w-[60%] h-fit sm:h-[450px] md:h-[480px]  lg:h-[500px]   border-solid border-2 border-gray-300 bg-slate-200 rounded-xl shadow-xl flex flex-col items-center py-4 px-6 ">
+        <div class="flex flex-col justify-center items-center">
+            <img src="{{ imagePath }}" alt="logo" class="w-14 h-14 md:w-20 md:h-20 rounded-full " >
+            <h1 class="my-1 md:my-2 text-lg lg:text-xl font-extrabold">Admin Registration</h1>
+        </div>
+        <form class="form-body" [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+
+            <div id="row2" class="flex flex-col sm:flex-row sm:gap-6 md:gap-8  justify-between items-center mt-2">  
+                <div id="input-fields" class="flex flex-col mb-2 md:mb-3 ">
+                    <label for="fullName">Full Name</label>
+                    <input class="w-[250px] sm:w-[220px] md:w-[300px] lg:w-[350px] h-10 rounded-md mt-1 px-2 text-[12px] md:text-base" type="text" id="fullName" formControlName="fullName">
+                </div>    
+               
+            </div>
+
+            <div id="row2" class="flex flex-col sm:flex-row sm:gap-6 md:gap-8  justify-between items-center mt-2">  
+                <div id="input-fields" class="flex flex-col mb-2 md:mb-3 ">
+                    <label for="email"> Email</label>
+                    <input class="w-[250px] sm:w-[220px] md:w-[300px] lg:w-[350px]  h-10 rounded-md mt-1 px-2 text-[12px] md:text-base" type="text" id="email" formControlName="email">
+                </div>    
+                
+            </div>
+            <div id="row3" class="flex flex-col sm:flex-row sm:gap-6 md:gap-8  justify-between items-center mt-2">
+                <div id="input-fields" class="flex flex-col mb-2 md:mb-3 ">
+                    <label for="password"> Password</label>
+                    <input class="w-[250px] sm:w-[220px] md:w-[280px] h-10 rounded-md mt-1 px-2 text-[12px] md:text-base" type="password" id="password" formControlName="password">
+                </div>    
+                <div id="input-fields" class="flex flex-col mb-2 md:mb-3 ">
+                    <label for="cpassword"> Confirm Password</label>
+                    <input class="w-[250px] sm:w-[220px] md:w-[280px] h-10 rounded-md mt-1 px-2 text-[12px] md:text-base" type="text" id="cpassword">
+                </div>    
+            </div>
+
+
+            <div class="flex flex-col sm:flex-row sm:justify-between md:mt-2">
+                <button class="bg-sky-600 px-4 py-2 mt-2 rounded-lg text-lg font-semibold hover:bg-sky-500 cursor-pointer"> Register</button>
+            </div>
+<!-- 
+            <div class="flex flex-col sm:flex-row sm:justify-between md:mt-2">
+                <a class="bg-sky-600 px-4 py-2 mt-2 rounded-lg text-lg font-semibold hover:bg-sky-500 cursor-pointer" >Register</a>
+
+                <p class="mt-2"><small>Already have an account? please <a routerLink='../login' class="text-blue-700">Login here</a></small></p>
+            </div> -->
+
+
+        </form>
+
+    </div>
+
+</div>

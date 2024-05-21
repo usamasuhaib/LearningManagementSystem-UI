@@ -1,0 +1,23 @@
+
+<div id="dialog"
+ class=" fixed left-0 top-0 bg-gray-700 bg-opacity-60 w-screen h-screen flex justify-center items-center  opacity-100 duration-200">
+
+    <div class="w-[45%] bg-white rounded shadow-md p-8 h-fit flex justify-between items-center gap-5">
+       <div class="rounded-full bg-red-100 min-h-[50px] min-w-[50px] w-10 h-10  flex items-center justify-center ">
+        <fa-icon class="rounded-full text-xl text-red-600 " [icon]="faWarning"></fa-icon>
+       </div>
+
+       <div class="w-fit flex flex-col justify-center ">
+        <h2 class="font-bold">Delete Record</h2>
+
+        <p>Are you sure you want to delete  User ? This action cannot be undone</p>
+       
+        <div class=" flex justify-end gap-4"> 
+            <button class="px-4 py-2 rounded-md bg-gray-600 text-white text-base hover:bg-gray-700" (click)="hideDialog()">Cancel</button>
+            <button class="px-4 py-2 rounded-md bg-red-600 text-white text-base hover:bg-red-700" (click)="confirmDeletion()">Delete</button>
+        </div>
+       </div>
+
+    </div>
+
+</div>

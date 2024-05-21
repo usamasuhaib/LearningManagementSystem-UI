@@ -1,0 +1,56 @@
+<div class=" flex-col justify-center items-center">
+
+    <div id="heading" class="flex justify-between items-center px-6 py-3">
+        <div class="h-[35px] px-4 py-1 rounded-md  text-2xl text-black font-bold shadow-sm">Teachers list</div>
+        <div class="flex  gap-6">
+            <button class=" h-[35px] px-4 py-2 bg-[#4835FA] rounded-md text-white font-medium hover:bg-[#3460FA]" (click)="teacherForm()">Add Teacher</button>
+            <button class=" h-[35px] px-4 py-2 bg-[#4835FA] rounded-md text-white font-medium hover:bg-[#3460FA]">Download CSV</button>
+        </div> 
+    </div>
+
+<div id="tableContainer" class="container mx-auto w-[98%]  border border-gray-300 h-fit bg-white overflow-hidden rounded-md">
+    <table class="w-full  ">
+
+        <thead class="bg-green-50 border-b-2 border-gray-200 ">
+            <tr class="">
+                <th class="p-3 text-[16px] font-semibold tracking-wide text-left">TeacherID</th>
+                <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Name</th>
+
+                <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Email</th>
+                <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Qualification</th>
+                <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Email</th>
+                <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for(teacher of teachersList; track teacher.email){
+
+            <tr class="border-b-2">
+                <td class="p-3 text-[14px] font-semibold">{{teacher.teacherId}}</td>
+
+                <td class="p-3 text-[14px]">{{teacher.fullName}}</td>
+                <td class="p-3 text-[14px]">{{teacher.email}}</td>
+                <td class="p-3 text-[14px]">{{teacher.qualification}}</td>
+
+                <td class="p-3 text-[14px]">{{teacher.email}}</td>
+                <td class="p-3  flex flex-row gap-5">
+                    <button class="" title="Edit Record">
+                        <fa-icon [icon]="faEdit" class="text-xl text-blue-700"></fa-icon>
+                    </button>
+                    <button class="" title="Delete Record"  (click)="showDialog(teacher.userId)">
+                        <fa-icon [icon]="faDelete" class="text-xl text-red-600"></fa-icon>
+                    </button>
+                    <button class="" title="View Details" (click)="onTeacherDetails(teacher.userId)">
+                        <fa-icon [icon]="faView" class="text-xl text-blue-500"></fa-icon>
+                    </button>
+                </td>
+            </tr>
+        }
+        </tbody>
+   
+    </table>
+</div>
+    
+</div>
+

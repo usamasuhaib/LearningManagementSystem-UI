@@ -1,0 +1,22 @@
+<div class="flex flex-col h-screen">
+    <div class="h-[80px]  md:hidden">
+        <app-teacher-mobile-navbar></app-teacher-mobile-navbar>
+    </div>
+
+    <div class="flex flex-row h-screen">
+        <div id="sidebar" class="hidden md:block w-[12%] lg:w-[18%] h-full shadow-xl overflow-y-auto">
+<app-teacher-side-nav></app-teacher-side-nav>
+        </div>
+        <div id="main-dashboard" class="flex flex-col w-[100%] md:w-[88%] lg:w-[82%] bg-[#C8DEDB]">
+            <div class="hidden md:block w-full h-[50px] bg-white shadow-xl">
+<app-teacher-page-header></app-teacher-page-header>
+            </div>
+            <div class="flex-1 overflow-y-auto">
+                <router-outlet></router-outlet>
+                <!-- <app-admin-dashboard-widgets></app-admin-dashboard-widgets> -->
+            </div>
+        </div>
+    </div>
+    
+</div> 
+

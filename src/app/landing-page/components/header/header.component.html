@@ -1,0 +1,49 @@
+<nav class="px-2 py-3 flex bg-slate-50 justify-between items-center ">
+    <a class=" ml-2 hover:text-sky-700 cursor-pointer text-lg font-semibold flex items-center gap-2">
+        <img src="{{ imagePath }}" alt="logo" class="w-14 h-14 rounded-full " >
+        <p class="text-[15px] lg:text-lg">Sun Rise Public School Daghoni</p>
+        <!-- Sunrise Public School Daghoni -->
+    </a>
+    <div id="nav-menu" class="hidden md:flex items-center  gap-12 ">
+        <a href="" class="font-medium hover:text-sky-600 cursor-pointer ">Home</a>
+        <a href="" class="font-medium hover:text-sky-600 cursor-pointer">About Us</a>
+        <a href="" class="font-medium hover:text-sky-600 cursor-pointer">Contact Us</a>
+    </div>
+
+    <button routerLink="./login"
+        class="hidden md:block w-20 h-10 bg-sky-600 text-white rounded-md mr-2 hover:bg-sky-500 px-1 py-2 text-base">Login
+    </button>
+
+    <button class="p-2 md:hidden" (click)="handleMenu()">
+        <fa-icon [icon]="faBar" class="text-gray-700 cursor-pointer text-lg"></fa-icon>
+    </button>
+
+
+  
+    <!-- <div id="navDialog" class="fixed bg-white inset-0 p-3" > -->
+    <!-- <nav class="w-screen p-4 flex bg-slate-50 justify-between items-center"> -->
+   <div id="navDialog" class="hidden w-screen fixed inset-0 p-4  bg-slate-50" >
+
+        <div id="nav-bar" class=" flex justify-between">
+            <a class=" ml-2 hover:text-sky-700 cursor-pointer text-lg font-semibold flex items-center gap-2">
+                <img src="{{ imagePath }}" alt="logo" class="w-16 h-16 rounded-full " >
+                <p class="text-lg md:text-2xl">Sun Rise Public School Daghoni</p>
+                <!-- Sunrise Public School Daghoni -->
+            </a>            <button class="p-2" (click)="handleMenu()">
+                <fa-icon [icon]="faClose" class="text-gray-700 cursor-pointer text-lg"></fa-icon>
+            </button>
+        </div>
+
+        <div class="mt-6">
+            <a href="" class="font-medium m-3 p-3 cursor-pointer hover:bg-gray-400 hover:text-white rounded-sm block ">Home</a>
+            <a href="" class="font-medium m-3 p-3 cursor-pointer hover:bg-gray-400 hover:text-white rounded-sm block ">About Us</a>
+            <a href="" class="font-medium m-3 p-3 cursor-pointer hover:bg-gray-400 hover:text-white rounded-sm block ">Contact Us</a>
+        </div>
+
+        <div class="h-[1px] bg-gray-400"></div>
+        <button routerLink="./login"
+        class=" mt-8 mx-5 w-24 h-10 bg-sky-600 text-white rounded-md mr-2 hover:bg-sky-500 px-1 py-2 text-base">Login
+        </button>
+   
+    </div>
+</nav>
