@@ -3,7 +3,7 @@ export interface StudentRegisterDto {
     email: string;
     gender: string;
     dateOfBirth: any;
-    gradeLevel: string;
+    classId: number;
     mobileNumber: any;
     address: string;
   }

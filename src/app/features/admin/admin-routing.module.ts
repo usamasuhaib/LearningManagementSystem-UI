@@ -8,6 +8,9 @@ import { TeacherDetailsComponent } from './management/teacher-management/teacher
 import { StdFormComponent } from './management/student-management/std-form/std-form.component';
 import { StudentsListComponent } from './management/student-management/students-list/students-list.component';
 import { StudentDetailsComponent } from './management/student-management/student-details/student-details.component';
+import { ClassListComponent } from './management/class-management/class-list/class-list.component';
+import { SubjectsListComponent } from './management/subject-management/subjects-list/subjects-list.component';
+import { ClassDetailsComponent } from './management/class-management/class-details/class-details.component';
 
 const routes: Routes = [
 
@@ -23,6 +26,19 @@ const routes: Routes = [
     {path:'add-std',component:StdFormComponent},
     {path:'std-list',component:StudentsListComponent},
     {path:'std-details/:id',component:StudentDetailsComponent},
+
+    
+    {path:'class-list',component:ClassListComponent},
+    {path:'class-details/:id',component:ClassDetailsComponent},
+
+    {path:'delete-class/:id',component:ClassListComponent},
+
+    // {path:'add-subject',component:StdFormComponent},
+
+    {path:'subjects-list',component:SubjectsListComponent},
+    {path:'delete-subject/:id',component:SubjectsListComponent},
+
+
 
     // {path:'delete-std/:id',component:StdFormComponent},
   ]},

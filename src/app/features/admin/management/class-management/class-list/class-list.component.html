@@ -1,0 +1,70 @@
+<div class=" flex-col justify-center items-center">
+
+    <div id="heading" class="flex justify-between items-center px-6 py-3">
+        <div class="h-[35px] px-4 py-1 rounded-md  text-2xl text-black font-bold shadow-sm">Class list</div>
+        <div class="flex  gap-6">
+            <button class=" h-[35px] px-4 py-2 bg-[#4835FA] rounded-md text-white font-medium hover:bg-[#3460FA]" (click)="addClass()">Add New Class</button>
+        </div> 
+    </div>
+
+<div id="tableContainer" class="container mx-auto w-[98%]  border border-gray-300 h-fit bg-white overflow-hidden rounded-md">
+    <table class="w-full  ">
+
+        <thead class="bg-green-50 border-b-2 border-gray-200 ">
+            <tr class="">
+                <!-- <th class="p-3 text-[16px] font-semibold tracking-wide text-left">ClassID</th> -->
+
+                <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Grade Level</th>
+
+                <th class="p-3 text-[16px] font-semibold tracking-wide text-left">No. of Students</th>
+
+                <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Action</th>
+            </tr>
+        </thead>
+
+
+        
+        <tbody>
+            @for(class of classList; track class.className){
+
+            <tr class="border-b-2">
+                <!-- <td class="p-3 text-[16px] ">{{class.classId}}</td> -->
+
+                <td class="p-3 text-[16px] ">{{class.className}}</td>
+
+                <td class="p-3 text-[16x] ">{{class.numberOfStudents}}</td>
+
+                <td class="p-3  flex flex-row gap-5">
+
+                    <button (click)="classDetails(class.classId)" class="px-2 py-1 rounded-sm bg-gray-200 text-sm shadow-sm hover:bg-gray-300" title="Class Details" > View Details
+                        <!-- <fa-icon [icon]="faView" class="text-sm text-blue-500"></fa-icon> -->
+                    </button>
+
+                    <!-- <button class="" title="Edit Record">
+                        <fa-icon [icon]="faEdit" class="text-sm text-blue-700"></fa-icon>
+                    </button> -->
+                    <button (click)="showDeleteDialog(2)" class="" title="Delete Class" >
+                        <fa-icon [icon]="faDelete" class="text-base text-red-600"></fa-icon>
+                    </button>
+
+                
+                </td>
+            </tr>
+        }
+     
+        </tbody>
+   
+    </table>
+</div>
+    
+</div>
+
+
+
+<app-add-class-dialog *ngIf="classService.showAddClassDialog"></app-add-class-dialog>
+<app-delete-class-dialog *ngIf="classService.showDeleteClassDialog"></app-delete-class-dialog>
+
+<!-- 
+
+
+ -->

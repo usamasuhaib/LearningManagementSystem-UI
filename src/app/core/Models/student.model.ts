@@ -3,6 +3,7 @@ export class Student {
     
     userId:string='';
     registrationNumber:string='';
+    gradeLevel:string='';
     fullName:string='';
     email:string='';
     dateOfBirth: Date = new Date();

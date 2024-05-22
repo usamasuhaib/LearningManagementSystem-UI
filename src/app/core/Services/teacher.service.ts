@@ -39,6 +39,10 @@ export class TeacherService {
   getTeachersList(): Observable<Teacher[]> {
     return this.httpClient.get<Teacher[]>(this.baseUrl +"/api/Teacher/GetTeachersList");
   }
+  
+  getTeachersCount():Observable<any>{
+    return this.httpClient.get<any>(this.baseUrl +"/api/Teacher/TeachersCount");
+  }
 
 
   getTeacherById(id:string):Observable<Teacher>{

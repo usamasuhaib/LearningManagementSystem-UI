@@ -1,0 +1,63 @@
+<div class=" flex-col justify-center items-center">
+
+    <div id="heading" class="flex justify-between items-center px-6 py-3">
+        <div class="h-[35px] px-4 py-1 rounded-md  text-2xl text-black font-bold shadow-sm">Subjects List</div>
+        <div class="flex  gap-6">
+            <button class=" h-[35px] px-4 py-2 bg-[#4835FA] rounded-md text-white font-medium hover:bg-[#3460FA]" (click)="addClass()">Add New Class</button>
+        </div> 
+    </div>
+
+<div id="tableContainer" class="container mx-auto w-[98%]  border border-gray-300 h-fit bg-white overflow-hidden rounded-md">
+    <table class="w-full  ">
+
+        <thead class="bg-green-50 border-b-2 border-gray-200 ">
+            <tr class="">
+                <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Subject ID</th>
+
+                <th class="p-3 text-[14px] font-semibold tracking-wide text-left">Subject Name </th>
+
+
+                <th class="p-3 text-[14px] font-semibold tracking-wide text-left">Action</th>
+            </tr>
+        </thead>
+
+
+        
+        <tbody>
+
+         @for(subject of subjectsList; track subject.id){
+            <tr class="border-b-2">
+                <td class="p-3 text-[16px] ">{{subject.id}}</td>
+
+                <td class="p-3 text-[16px] ">{{subject.subjectName}}</td>
+                <td class="p-3  flex flex-row gap-5">
+                    <button class="" title="Edit Record">
+                        <fa-icon [icon]="faEdit" class="text-sm text-blue-700"></fa-icon>
+                    </button>
+                    <button (click)="showDeleteDialog(1)" class="" title="Delete Record" >
+                        <fa-icon [icon]="faDelete" class="text-sm text-red-600"></fa-icon>
+                    </button>
+
+                    <button class="" title="View Details" >
+                        <fa-icon [icon]="faView" class="text-sm text-blue-500"></fa-icon>
+                    </button>
+                </td>
+            </tr>
+        }
+     
+        </tbody>
+ 
+    </table>
+</div>
+    
+</div>
+
+
+
+<app-add-subject-dialog *ngIf="subjectService.showAddSubjectDialog"></app-add-subject-dialog>
+<app-delete-subject-dialog *ngIf="subjectService.showDeleteSubjectDialog"></app-delete-subject-dialog>
+
+<!-- 
+
+
+ -->

@@ -1,61 +1,168 @@
-<nav class="bg-[#303461] h-screen shadow-lg">
+<nav class="bg-[#303461] min-h-screen  shadow-lg ">
 
     <!-- school info  -->
-    <div id="school-logo" class="flex flex-col justify-center items-center  gap-2 xl:gap-3">
+    <div id="school-logo" class="flex flex-col justify-center items-center xl:gap-2">
 
-        <img src="{{ imagePath }}" alt="" class="w-16 h-16  2xl:w-24 2xl:h-24 rounded-full bg-white my-6">
+        <img src="{{ imagePath }}" alt="" class="w-16 h-16  2xl:w-24 2xl:h-24 rounded-full bg-white my-4">
         <p class="hidden lg:block  lg:text-[15px] 2xl:text-2xl font-semibold text-white">Sun Rise Public School</p>
     </div>
 
     <!-- line  -->
-    <div class="h-[1.5px] bg-gray-500 mt-4 xl:mt-6 2xl:mt-10"></div>
+    <div class="h-[1.5px] bg-gray-500 mt-3 xl:mt-4 2xl:mt-6"></div>
 
 
     <!-- nav items  -->
     <div>
-        <ul class="flex flex-col list-none mt-4 gap-2 md:gap-2 lg:gap-4 xl:gap-3 2xl:gap-8">
+        <ul class="flex flex-col list-none mt-4 gap-2 md:gap-2 lg:gap-4 xl:gap-5 2xl:gap-12">
 
-            <li class="flex flex-row  items-center gap-5 xl:gap-6 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]"
+            <li class="flex flex-row  items-center gap-5 xl:gap-6 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[12px]"
                 (click)="dashboard()" routerLinkActive="active">
                 <fa-icon [icon]="faDashboard" class="text-lg  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
                 <p class="hidden lg:block  2xl:text-xl text-white font-medium">Dashboard</p>
             </li>
 
-            <li class="flex flex-row  items-center gap-5 xl:gap-6 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]"
-                (click)="teacherList()" routerLinkActive="active">
-                <fa-icon [icon]="faTeacher" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
-                <p class="hidden lg:block  2xl:text-xl text-white font-medium">Teachers</p>
+            <li class="flex flex-row justify-between  hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[12px]"
+            (click)="toggleMenu('teacher')">
+                <div class="flex flex-row items-center gap-5 xl:gap-6 ">
+                    <fa-icon [icon]="faTeacher" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                    <p class="hidden lg:block 2xl:text-xl text-white font-medium">Teachers</p>
+                </div>
+
+                <fa-icon [icon]="isTeacherMenuOpen ? faChevronDown : faChevronRight"
+                class="  text-gray-300 ml-4 xl:ml-5"></fa-icon>
             </li>
 
+            <span *ngIf="isTeacherMenuOpen"
+                class="flex flex-col justify-end items-center  mx-4 bg-black rounded-md overflow-hidden">
 
-            <li class="flex flex-row  items-center gap-5 xl:gap-6 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]"
-                (click)="stdList()">
-                <fa-icon [icon]="faDashboard" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
-                <p class="hidden lg:block 2xl:text-xl text-white font-medium">Students</p>
+                <ul class="flex flex-col list-none justify-end  gap-1  lg:gap-2  2xl:gap-4 w-full">
+                    <li class="flex flex-row  items-center gap-2 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-1 px-[8px]"
+                        (click)="teacherList()" routerLinkActive="active">
+                        <fa-icon [icon]="faList" class="text-base text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                        <p class="hidden lg:block text-sm text-white font-medium">Teachers List</p>
+                    </li>
+
+                    <li class="flex flex-row  items-center gap-2 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-1 px-[8px] "
+                        (click)="AddTeacher()" routerLinkActive="active">
+                        <fa-icon [icon]="faAdd" class="text-base text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                        <p class="hidden lg:block text-sm text-white font-medium">Add New Teacher</p>
+                    </li>
+
+
+                </ul>
+            </span>
+
+
+
+            <!-- students -->
+            <li class="flex flex-row justify-between  hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[12px]"
+            (click)="toggleMenu('student')">
+                <div class="flex flex-row items-center gap-5 xl:gap-6 ">
+                    <fa-icon [icon]="faStudents" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                    <p class="hidden lg:block 2xl:text-xl text-white font-medium">Students</p>
+                </div>
+
+                <fa-icon [icon]="isStudentMenuOpen ? faChevronDown : faChevronRight"
+                class="  text-gray-300 ml-4 xl:ml-5"></fa-icon>
             </li>
 
-            <li class="flex flex-row  items-center gap-5 xl:gap-6 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]">
-                <fa-icon [icon]="faTeacher" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
-                <p class="hidden lg:block   2xl:text-xl text-white font-medium">Exams</p>
-            </li>
-            <li class="flex flex-row  items-center gap-5 xl:gap-6 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]">
-                <fa-icon [icon]="faBilling" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
-                <p class="hidden lg:block  2xl:text-xl text-white font-medium">Billings</p>
+            <span *ngIf="isStudentMenuOpen"
+                class="flex flex-col justify-end items-center  mx-4 bg-black rounded-md overflow-hidden">
+
+                <ul class="flex flex-col list-none justify-end  gap-1  lg:gap-2  2xl:gap-4 w-full">
+                    <li class="flex flex-row  items-center gap-2 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-1 px-[8px]"
+                        (click)="stdList()" routerLinkActive="active">
+                        <fa-icon [icon]="faList" class="text-base text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                        <p class="hidden lg:block text-sm text-white font-medium">Students List</p>
+                    </li>
+
+                    <li class="flex flex-row  items-center gap-2 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-1 px-[8px] "
+                        (click)="AddStd()" routerLinkActive="active">
+                        <fa-icon [icon]="faAdd" class="text-base text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                        <p class="hidden lg:block text-sm text-white font-medium">Add New Studnet</p>
+                    </li>
+
+
+                </ul>
+            </span>
+
+            <!-- class management  -->
+
+            <li class="flex flex-row justify-between  hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[12px]"
+            (click)="toggleMenu('class')">
+            <div class="flex flex-row items-center gap-5 xl:gap-6 ">
+                <fa-icon [icon]="faExam" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                <p class="hidden lg:block 2xl:text-xl text-white font-medium">Classes</p>
+            </div>
+
+            <fa-icon [icon]="isClassMenuOpen ? faChevronDown : faChevronRight"
+            class="  text-gray-300 ml-4 xl:ml-5"></fa-icon>
+        </li>
+
+        <div *ngIf="isClassMenuOpen"
+            class="flex flex-col justify-end items-center  mx-4 bg-black rounded-md overflow-hidden">
+
+            <ul class="flex flex-col list-none justify-end  gap-1  lg:gap-2  2xl:gap-4 w-full">
+                <li class="flex flex-row  items-center gap-2 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-1 px-[8px]"
+                    (click)="classList()" routerLinkActive="active">
+                    <fa-icon [icon]="faList" class="text-base text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                    <p class="hidden lg:block text-sm text-white font-medium">Class List</p>
+                </li>
+<!-- 
+                <li class="flex flex-row  items-center gap-2 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-1 px-[8px] "
+                    (click)="AddStd()" routerLinkActive="active">
+                    <fa-icon [icon]="faAdd" class="text-base text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                    <p class="hidden lg:block text-sm text-white font-medium">Add New Class</p>
+                </li> -->
+
+
+            </ul>
+        </div>
+
+            <!-- subject Management -->
+            <li class="flex flex-row justify-between  hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[12px]"
+                (click)="toggleMenu('subject')">
+                <div class="flex flex-row items-center gap-5 xl:gap-6 ">
+                    <fa-icon [icon]="faExam" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                    <p class="hidden lg:block 2xl:text-xl text-white font-medium">Subjects</p>
+                </div>
+
+                <fa-icon [icon]="isSubjectMenuOpen ? faChevronDown : faChevronRight"
+                class="  text-gray-300 ml-4 xl:ml-5"></fa-icon>
             </li>
 
-            <li class="flex flex-row  items-center gap-5 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]">
+            <div *ngIf="isSubjectMenuOpen"
+                class="flex flex-col justify-end items-center  mx-4 bg-black rounded-md overflow-hidden">
+
+                <ul class="flex flex-col list-none justify-end  gap-1  lg:gap-2  2xl:gap-4 w-full">
+                    <li class="flex flex-row  items-center gap-2 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-1 px-[8px]"
+                        (click)="subjectsList()" routerLinkActive="active">
+                        <fa-icon [icon]="faList" class="text-base text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                        <p class="hidden lg:block text-sm text-white font-medium">Subjects List</p>
+                    </li>
+
+                    <!-- <li class="flex flex-row  items-center gap-2 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-1 px-[8px] "
+                        (click)="AddSubject()" routerLinkActive="active">
+                        <fa-icon [icon]="faAdd" class="text-base text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                        <p class="hidden lg:block text-sm text-white font-medium">Add New Subject</p>
+                    </li> -->
+
+
+                </ul>
+            </div>
+
+            <li
+                class="flex flex-row  items-center gap-5 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]">
                 <fa-icon [icon]="faProfile" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
-                <p class="hidden lg:block  2xl:text-xl text-white font-medium">Settings and profile</p>
+                <p class="hidden lg:block  2xl:text-xl text-white font-medium">Settings</p>
             </li>
-
-
-
-
 
         </ul>
 
 
-        <span class="flex flex-row  items-center gap-5 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px] mt-6" (click)="logOut()">
+        <span
+            class="flex flex-row  items-center gap-5 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px] mt-6"
+            (click)="logOut()">
             <fa-icon [icon]="faLogout" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
             <p class="hidden lg:block  2xl:text-xl text-white font-medium">Logout</p>
         </span>

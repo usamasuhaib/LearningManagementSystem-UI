@@ -1,0 +1,28 @@
+<div id="dialog"
+    class=" fixed left-0 top-0 bg-gray-700 bg-opacity-60 w-screen h-screen flex justify-center items-center  opacity-100 duration-200">
+
+    <div id="form-container "
+        class=" container mx-auto w-fit h-fit   border-solid border-2 border-gray-300 bg-slate-200 rounded-lg shadow-xl flex flex-col items-center py-6 px-12 mt-2 2xl:mt-6">
+
+
+        <form action="" class="w-full flex flex-col gap-7 2xl:gap-10 px-4 py-2 2xl:py-6"  [formGroup]="addClassForm" (ngSubmit)="onSubmit()">
+
+            <div id="name" class="flex flex-col gap-2 w-[98%]">
+                <label class="font-medium 2xl:text-lg" for="age">Grade Level</label>
+                <input class=" h-9 2xl:h-12  rounded-md py-3 px-2 2xl:text-xl" type="text" id="name"
+                    formControlName="className">
+            </div>
+
+
+            <div id="row4" class=" flex gap-5">
+                <button class=" h-[35px] px-3 py-1 bg-gray-500 rounded-md text-white  hover:bg-gray-600">
+                    Cancel
+                </button>
+                <button class=" h-[35px] px-3 py-1 bg-[#4835FA] rounded-md text-white hover:bg-[#3460FA]">
+                    Add Class
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>

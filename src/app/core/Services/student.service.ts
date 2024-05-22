@@ -45,6 +45,10 @@ export class StudentService {
     return this.httpClient.get<Student[]>(this.baseUrl +"/api/Student/GetStudentsList");
   }
 
+  getStudentsCount():Observable<any>{
+    return this.httpClient.get<any>(this.baseUrl +"/api/Student/StudentsCount");
+  }
+
 
 
 
