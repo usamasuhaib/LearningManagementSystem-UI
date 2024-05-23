@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { StudentRegisterDto } from '../DTOs/student-register-dto.model';
 import { Student } from '../Models/student.model';
+import { StudentSubjectDto } from '../DTOs/student-subject-dto.class';
+import { SubjectDto } from '../DTOs/subject-dto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -61,10 +63,19 @@ export class StudentService {
     return this.httpClient.get<Student>(this.baseUrl+"/api/Student/GetStudentDetails/"+id);
   }
 
-  // getStudentDetails(userId: string): Observable<StudentDetails> {
-  //   return this.http.get<StudentDetails>(`${this.apiUrl}/${userId}`);
+  // getStudentSubjects():Observable<any>{
+  //   return this.httpClient.get<any>(this.baseUrl +"/api/Student/GetStudentSubjects");
   // }
-  
+
+  getStudentSubjects(): Observable<SubjectDto[]> {
+    return this.httpClient.get<SubjectDto[]>(this.baseUrl +"/api/Student/GetStudentSubjects");
+  }
+
+  // getStudentSubjects(): Observable<{ Subjects: SubjectDto[], SubjectCount: number }> {
+  //   return this.http.get<{ Subjects: SubjectDto[], SubjectCount: number }>('api/GetStudentSubjects');
+  // }
+
+
 
   deleteStudent(id:any):Observable<any>{
     return this.httpClient.delete<any>(this.baseUrl+"/api/student/DeleteStudent/"+id)

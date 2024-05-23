@@ -1,10 +1,10 @@
 <div class=" flex-col justify-center items-center">
 
     <div id="heading" class="flex justify-between items-center px-6 py-3">
-        <div class="h-[35px] px-4 py-1 rounded-md  text-2xl text-black font-bold shadow-sm">Assigned Subjects list</div>
+        <div class="h-[35px] px-4 py-1 rounded-md  text-2xl text-black font-bold shadow-sm">My Subjects</div>
         <div class="flex  gap-6">
-<!--       
-            <button
+      
+            <!-- <button
                 class=" h-[35px] px-4 py-2 bg-[#4835FA] rounded-md text-white font-medium hover:bg-[#3460FA]">Download
                 CSV</button> -->
         </div>
@@ -18,7 +18,7 @@
                 <tr class="">
 
                     <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Subject Name</th>
-                    <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Grade Level</th>
+                    <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Teacher Name</th>
 
 
                     <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Action</th>
@@ -26,12 +26,12 @@
             </thead>
 
             <tbody>
-                @for(subject of teacherSubjects; track subject.subjectId){
+                @for(subject of studentSubjects; track subject.subjectId){
 
                 <tr class="border-b-2">
                     <td class="p-3 text-[14px] ">{{subject.subjectName}}</td>
 
-                    <td class="p-3 text-[14px]">10th</td>
+                    <td class="p-3 text-[14px]">{{subject.teacherName}}</td>
 
                     <td class="p-3  flex flex-row gap-5">
                   

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faHome, faChalkboardTeacher, faUserGraduate, faCog, faFileInvoiceDollar, faClipboardList, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faChalkboardTeacher, faUserGraduate, faCog, faFileInvoiceDollar, faClipboardList, faPowerOff, faBookSkull } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-student-sidenav',
@@ -23,7 +23,7 @@ export class StudentSidenavComponent {
 
   faProfile=faCog;
   faBilling=faFileInvoiceDollar;
-  faExam=faClipboardList
+  faSubjects=faBookSkull
 
 
   navDialog: HTMLElement | undefined;
@@ -37,18 +37,15 @@ export class StudentSidenavComponent {
     this.navDialog?.classList.toggle('hidden')
   }
 
-  teacherList(){
 
-    return this.route.navigate(['admin/teachers-list'])
-
-  }
-  stdList(){
-    return this.route.navigate(['admin/std-list'])
-
-  }
+ 
 
   dashboard(){
-    return this.route.navigate(['admin/dashboard']);
+    return this.route.navigate(['student/dashboard']);
+  }
+
+  mySubjects(){
+    return this.route.navigate(['student/my-subjects']);
   }
 
   logOut(){
