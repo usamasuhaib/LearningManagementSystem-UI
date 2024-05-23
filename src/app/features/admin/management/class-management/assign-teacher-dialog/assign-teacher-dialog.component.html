@@ -8,22 +8,20 @@
         class=" container mx-auto w-fit h-fit   border-solid border-2 border-gray-300 bg-slate-200 rounded-lg shadow-xl flex flex-col gap-4 items-center pb-5 pt-2 pr-6 pl-8 mt-2 2xl:mt-6">
        
         <div class="w-[100%] flex justify-end items-end">
-            <button class="" title="Close Dialog" (click)="subjectService.showAddSubjectDialog=false">
+            <button class="" title="Close Dialog" (click)="classService.showAsignTeacherDialog=false">
                 <fa-icon [icon]="faClose" class="text-2xl text-black"></fa-icon>
             </button>
         </div>
        
-        <form action="" class="w-full flex flex-row justify-between gap-4 2xl:gap-10 px-4 py-2 2xl:py-6" [formGroup]="addSubjectForm"
+        <form action="" class="w-full flex flex-row justify-between gap-4 2xl:gap-10 px-4 py-2 2xl:py-6" [formGroup]="assignTeacherForm"
             (ngSubmit)="onSubmit()">
 
-
-            <div class=" flex flex-col">
-                <!-- <label for="">Subject Name</label> -->
-                <input class="h-9 2xl:h-12 rounded-sm py-1 px-4 2xl:text-xl" type="text" placeholder="Subject Name" formControlName="subjectName">
-            </div>
-
+        <select name="" id="" class=" h-9 2xl:h-12 rounded-sm py-1 px-4 2xl:text-xl" formControlName="teacherId">
+            <option value="" disabled selected>Select Subject</option>
+            <option *ngFor="let teacher of teachersList" [value]="teacher.id">{{ teacher.fullName }}</option>
+        </select>
          
-        <button class="px-2 py-1 h-9 rounded-sm bg-gray-400 text-sm shadow-sm hover:bg-gray-500 "> Add Subject
+        <button class="px-2 py-1 h-9 rounded-sm bg-gray-400 text-sm shadow-sm hover:bg-gray-500 "> Assign Teacher
          </button>
 
         </form>

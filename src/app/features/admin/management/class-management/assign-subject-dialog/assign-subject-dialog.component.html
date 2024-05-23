@@ -1,0 +1,35 @@
+<div id="dialog"
+class=" fixed left-0 top-0  bg-gray-700 bg-opacity-60 w-screen h-screen flex  justify-center items-center  opacity-100 duration-200">
+
+    <div id="form-container "
+    class=" container mx-auto w-fit h-fit   border-solid border-2 border-gray-300 bg-slate-200 rounded-lg shadow-xl flex flex-col gap-4 items-center pb-5 pt-2 pr-6 pl-8 mt-2 2xl:mt-6">
+
+    <div class="w-[100%] flex justify-end items-end">
+        <button class="" title="Close Dialog" (click)="classService.showAsignSubjectDialog=false">
+            <fa-icon [icon]="faClose" class="text-2xl text-black"></fa-icon>
+        </button>
+    </div>
+
+     <form action="" class="w-full flex flex-row justify-between gap-4 2xl:gap-10 px-4 py-2 2xl:py-6"
+     [formGroup]="assignSubjectForm" (ngSubmit)="onSubmit()">
+
+       
+            <div class=" flex flex-col">
+                <!-- <label for="">Subject Name</label> -->
+                <select name="" id="" class=" h-9 2xl:h-12 rounded-md py-1 px-2 2xl:text-xl" formControlName="subjectId">
+                    <option value="">Select Subject</option>
+                    <option *ngFor="let subject of subjectsList" [value]="subject.id">{{ subject.subjectName }}</option>
+                </select>
+            </div>
+
+      
+            <button class="px-2 py-1 h-9 rounded-sm bg-gray-400 text-sm shadow-sm hover:bg-gray-500 "> Add Subject
+            </button>
+
+            
+        </form>
+
+    </div>
+</div>
+
+<!-- kkkkkkkk -->

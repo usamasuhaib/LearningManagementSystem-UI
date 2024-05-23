@@ -12,8 +12,14 @@ export class ClassService {
   baseUrl='https://localhost:7254';
 
   showAddClassDialog=false;
+  showAsignSubjectDialog=false;
+
+  showAsignTeacherDialog=false;
+
+
   showDeleteClassDialog=false;
   classId?:number;
+  subjectId?:number;
 
   url="https://localhost:7254/api/Class/GetClassById/2";
 

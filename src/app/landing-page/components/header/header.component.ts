@@ -1,4 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,7 +19,7 @@ export class HeaderComponent {
 
   navDialog: HTMLElement | undefined;
 
-  constructor(private elementRef: ElementRef) {
+  constructor(private elementRef: ElementRef, private router:Router) {
     this.imagePath = 'assets/images/SRPSD.png';
 
    }
@@ -31,4 +32,8 @@ export class HeaderComponent {
     this.navDialog?.classList.toggle('hidden')
   }
 
+
+  onLogin(){
+this.router.navigate(['/login'])
+  }
 }

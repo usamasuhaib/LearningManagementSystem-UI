@@ -21,29 +21,27 @@
                 <p class="hidden lg:block  2xl:text-xl text-white font-medium">Dashboard</p>
             </li>
 
-      
 
             <li class="flex flex-row  items-center gap-5 xl:gap-6 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]"
-                (click)="stdList()">
-                <fa-icon [icon]="faDashboard" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
-                <p class="hidden lg:block 2xl:text-xl text-white font-medium">Students</p>
+                (click)="subjectsList()" routerLinkActive="active">
+                <fa-icon [icon]="faSubjects" class="text-lg  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
+                <p class="hidden lg:block  2xl:text-xl text-white font-medium">Subjects</p>
             </li>
 
-   
-
-
-            <li class="flex flex-row  items-center gap-5 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]">
+<!-- 
+            <li
+                class="flex flex-row  items-center gap-5 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px]">
                 <fa-icon [icon]="faProfile" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
                 <p class="hidden lg:block  2xl:text-xl text-white font-medium">Settings and profile</p>
-            </li>
+            </li> -->
 
         </ul>
 
-        <span class="flex flex-row  items-center gap-5 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px] mt-6" (click)="logOut()">
+        <span
+            class="flex flex-row  items-center gap-5 xl:gap-4 hover:cursor-pointer hover:bg-[#7D93B6] py-2 px-[10px] mt-6"
+            (click)="logOut()">
             <fa-icon [icon]="faLogout" class="text-xl  2xl:text-3xl text-gray-300 ml-4 xl:ml-5"></fa-icon>
             <p class="hidden lg:block  2xl:text-xl text-white font-medium">Logout</p>
         </span>
     </div>
-
-
 </nav>

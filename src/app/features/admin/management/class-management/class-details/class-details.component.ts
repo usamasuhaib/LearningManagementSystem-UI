@@ -9,11 +9,13 @@ import { ClassDto } from '../../../../../core/DTOs/class-dto.model';
 import { SubjectService } from '../../../../../core/Services/subject.service';
 import { Teacher } from '../../../../../core/Models/teacher.model';
 import { TeacherService } from '../../../../../core/Services/teacher.service';
+import { AssignTeacherDialogComponent } from '../assign-teacher-dialog/assign-teacher-dialog.component';
+import { AssignSubjectDialogComponent } from '../assign-subject-dialog/assign-subject-dialog.component';
 
 @Component({
   selector: 'app-class-details',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, AssignSubjectDialogComponent, AssignTeacherDialogComponent],
   templateUrl: './class-details.component.html',
   styleUrl: './class-details.component.css'
 })
@@ -32,7 +34,7 @@ export class ClassDetailsComponent {
 
   // id?:number;
 
-  constructor(private activeRoute: ActivatedRoute, private classService: ClassService, private subjectService:SubjectService, private teacherService:TeacherService) { }
+  constructor(private activeRoute: ActivatedRoute, public classService: ClassService, private subjectService:SubjectService, private teacherService:TeacherService) { }
 
   ngOnInit(): void {
 
@@ -51,8 +53,10 @@ export class ClassDetailsComponent {
   }
 
 
-  addStudentAndTeacher(){
-    
+  assignSubject(){
+
+    this.classService.showAsignSubjectDialog=true;
+
   }
   // getSubjects() {
   //   this..getSubjects().subscribe(data => {
@@ -67,8 +71,9 @@ export class ClassDetailsComponent {
   // }
 
 
-  assignTeacher(id:any){
-
+  assignTeacher(subject: any): void {
+    this.classService.showAsignTeacherDialog = true;
+    this.classService.subjectId = subject.subjectId;
   }
 
   assignSubjectAndTeacher(){

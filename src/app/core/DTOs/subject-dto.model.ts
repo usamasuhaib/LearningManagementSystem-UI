@@ -1,6 +1,6 @@
 export interface SubjectDto {
 
     subjectId?:number;
-    SubjectName:string;
+    subjectName:string;
 
 }

@@ -23,7 +23,7 @@ export class TeacherService {
   isTeacherLoggedIn(): boolean {
     const token = localStorage.getItem('token'); // Replace with your token storage mechanism
 
-    // Check for valid token and "Admin" role
+    // Check for valid token and "Teacher" role
     return !!token && this.authService.decodeToken(token)?.role === 'Teacher';
   }
 
@@ -48,6 +48,15 @@ export class TeacherService {
   getTeacherById(id:string):Observable<Teacher>{
     return this.httpClient.get<Teacher>(this.baseUrl+"/api/Teacher/GetTeacherDetails/"+id);
   }
+
+
+
+
+  getTeacherSubjects():Observable<any>{
+    return this.httpClient.get<any>(this.baseUrl +"/api/Teacher/GetTeacherSubjects");
+  }
+
+
 
   deleteTeacher(id:any):Observable<any>{
     return this.httpClient.delete<any>(this.baseUrl+"/api/Teacher/DeleteTeacher/"+id)

@@ -1,5 +1,6 @@
 export class Teacher {
 
+    id?:number;
     userId:string='';
     teacherId:string='';
     fullName:string='';

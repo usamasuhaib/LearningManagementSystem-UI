@@ -52,9 +52,9 @@ export class SubjectsListComponent {
 
   }
 
-  addClass(){
+  addSubject(){
 
-    this.classService.showAddClassDialog=true;
+    this.subjectService.showAddSubjectDialog=true;
     // this.stdService.showDialog=true;
 
     // this.classService.showAddClassDialog=true;

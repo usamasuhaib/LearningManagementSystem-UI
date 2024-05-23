@@ -4,28 +4,28 @@
   <div class="container mx-auto mt-2 px-2 h-fit">
     <div class="bg-white rounded-lg shadow-md overflow-hidden">
       <div class="p-3">
-        <div class="mb-4 flex flex-row justify-between items-center">
+        <div class=" flex flex-row justify-between items-center">
           <h2 class="text-2xl font-bold ">Class : {{ classDetails.className }}</h2>
           <p class="font-semibold">Total Students : {{ classDetails.numberOfStudents }}</p>
 
           <button class=" h-[35px] px-4 bg-gray-500 rounded-md text-white font-medium hover:bg-[#3460FA]"
-          (click)="addStudentAndTeacher()">Assign Subject and Teacher</button>
+            (click)="assignSubject()">Assign Subjects</button>
         </div>
-   
+
       </div>
     </div>
   </div>
 
 
 
-  <div class="h-[100%] flex flex-row justify-between gap-1 px-4 py-1 ">
-    <div class=" w-[60%] flex flex-col">
+  <div class="h-[100%] flex flex-row justify-between gap-1 px-4 py-1 mt-2 ">
+    <div class=" w-[50%] flex flex-col">
       <h2 class="my-1 mx-1 text-lg font-semibold ">Students List</h2>
       <div id="tableContainer"
         class="container mx-auto w-[100%] border border-gray-300 h-fit bg-white overflow-hidden rounded-md">
         <table class="w-full  ">
-
           <thead class="bg-green-50 border-b-2 border-gray-200 ">
+
             <tr class="">
               <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Registraion Number</th>
 
@@ -48,7 +48,7 @@
 
     </div>
 
-    <div class=" w-[35%] flex flex-col">
+    <div class=" w-[47%] flex flex-col">
       <h2 class="my-1 mx-1 text-lg font-semibold ">Subjects List</h2>
       <div id="tableContainer"
         class="container mx-auto w-[100%] border border-gray-300 h-fit bg-white overflow-hidden rounded-md">
@@ -59,20 +59,44 @@
               <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Subject</th>
 
               <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Teacher</th>
+
+              <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Action</th>
+
             </tr>
           </thead>
 
           <tbody>
-            <tr class="border-b-2">
-              <td class="p-3 text-[14px] font-semibold">NA</td>
 
-              <td class="p-3 text-[14px]">Na</td>
+            @for(subject of classDetails.subjects; track subject.subjectId){
+
+            <tr class="border-b-2">
+              <td class="p-3 text-[14px] font-semibold">{{subject.subjectName}}</td>
+
+              <td class="p-3 text-[14px]">
+                {{ subject.teacher?.teacherName ? subject.teacher.teacherName : 'No Teacher Assigned' }}
+              </td>
+              <td class="p-3  flex flex-row gap-5">
+                <!-- Check if a teacher is assigned to the subject -->
+                <button *ngIf="subject.teacher" class="px-2 py-1 rounded-sm bg-gray-200 text-sm shadow-sm hover:bg-gray-300" title="Edit Teacher" (click)="assignTeacher(subject)">
+                  Edit Teacher
+                </button>
+                <!-- Display Assign Teacher button if no teacher is assigned -->
+                <button *ngIf="!subject.teacher" class="px-2 py-1 rounded-sm bg-gray-300 text-sm shadow-sm hover:bg-gray-300" title="Assign Teacher" (click)="assignTeacher(subject)">
+                  Assign Teacher
+                </button>
+              </td>
             </tr>
+
+          }
           </tbody>
         </table>
       </div>
-
     </div>
+
   </div>
 
+
 </div>
+
+<app-assign-teacher-dialog *ngIf="classService.showAsignTeacherDialog"></app-assign-teacher-dialog>
+<app-assign-subject-dialog *ngIf="classService.showAsignSubjectDialog"></app-assign-subject-dialog>

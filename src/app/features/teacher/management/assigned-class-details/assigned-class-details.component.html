@@ -1,0 +1,56 @@
+<div id="container" class="w-[100%] h-[100%] flex flex-col ">
+
+<!-- 
+    <div class="container mx-auto mt-2 px-2 h-fit">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="p-3">
+          <div class=" flex flex-row justify-between items-center">
+            <h2 class="text-2xl font-bold ">Class : {{ classDetails.className }}</h2>
+            <p class="font-semibold">Total Students : {{ classDetails.numberOfStudents }}</p>
+  
+            <button class=" h-[35px] px-4 bg-gray-500 rounded-md text-white font-medium hover:bg-[#3460FA]"
+              (click)="assignSubject()">Assign Subjects</button>
+          </div>
+  
+        </div>
+      </div>
+    </div> -->
+  
+  
+  
+    <div class="h-[100%] flex flex-row justify-between gap-1 px-4 py-1 mt-2 ">
+      <div class=" w-[50%] flex flex-col">
+        <h2 class="my-1 mx-1 text-lg font-semibold ">Students List</h2>
+        <div id="tableContainer"
+          class="container mx-auto w-[100%] border border-gray-300 h-fit bg-white overflow-hidden rounded-md">
+          <table class="w-full  ">
+            <thead class="bg-green-50 border-b-2 border-gray-200 ">
+  
+              <tr class="">
+                <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Registraion Number</th>
+  
+                <th class="p-3 text-[16px] font-semibold tracking-wide text-left">Student Name</th>
+              </tr>
+            </thead>
+<!--   
+            <tbody>
+                @for(subject of teacherSubjects.; track subject.subjectId){
+  
+              <tr class="border-b-2">
+                <td class="p-3 text-[14px] font-semibold">{{student.studentRegistration}}</td>
+  
+                <td class="p-3 text-[14px]">{{student.studentName}}</td>
+              </tr>
+              }
+            </tbody> -->
+          </table>
+        </div>
+  
+      </div>
+  
+
+  
+    </div>
+  
+  
+  </div>
