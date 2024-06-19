@@ -16,6 +16,9 @@ import { TeacherSubjectDto } from '../../../../core/DTOs/teacher-subject-dto.mod
 })
 export class AssignedSubjectsListComponent {
 
+  mood:string='';
+  sad:string='';
+
   faView = faEye;
 
   teacherSubjects: TeacherSubjectDto[]=[]
@@ -47,4 +50,11 @@ export class AssignedSubjectsListComponent {
   viewDetails(){
 // this.router.navigate(['teacher/subject-details'])
   }
+
+
+  
+
+
 }
+
+

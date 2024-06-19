@@ -45,20 +45,44 @@ export class ClassListComponent {
     console.log(this.classList)
     this.title.setTitle("Students List | School Management System")
 
-    // Initial data fetch (optional)
+
+
     this.reloadClssList();
+
+      // Subscribe to an event in your classService indicating that a class has been added successfully
+  // this.classService.addClass.subscribe(() => {
+  //   // Reload the list of classes after successfully adding a new class
+  //   this.loadClasses();
+  // });
+
+
   }
+
+  reloadClssList(){
+
+    this.classService.getClassList().subscribe((result) => {
+      console.log(result);
+      this.classList = result;
+    },
+      (err: Error) => {
+        console.log(err.message);
+      }
+    )
+}
+
+
+
+
+
+
   onEdit(id: any) {
     this.router.navigate(['admin/edit-std/' + id]);
 
   }
 
   addClass(){
-
     this.classService.showAddClassDialog=true;
-    // this.stdService.showDialog=true;
 
-    // this.classService.showAddClassDialog=true;
   }
 
 
@@ -82,14 +106,5 @@ classDetails(id:any){
 
 
 
-  private reloadClssList(){
 
-    this.classService.getClassList().subscribe((result) => {
-      console.log(result);
-      this.classList = result;
-    },
-      (err: Error) => {
-        console.log(err.message);
-      }
-    )
-}}
+}
